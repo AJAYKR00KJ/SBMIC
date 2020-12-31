@@ -38,6 +38,39 @@ features that is being used by any college so that they can use it easily.
    
 ## Instruction to USE web application
 
+*  Download the zip file or clone this repo using following command
+   
+     ``` bash
+         git clone https://github.com/AJAYKR00KJ/SBMIC.git
+     ```
+*  Create Virtual environment by following given commands
+     ``` bash
+         $ apt-get install python3-venv  
+         $ mkdir djangoenv 
+         $ python3 -m venv djangoenv  
+         $ source djangoenv/bin/activate 
+     ```    
+         
+*  Install django using following command
+     ``` bash
+         pip install django 
+     ```
+*  Migrate models using following command
+     ``` bash
+         ..\Desktop\SBMIC>python manage.py makemigrations
+         ..\Desktop\SBMIC>python manage.py migrate 
+     ```     
+*  Run the project on local server
+     ``` bash
+         ..\Desktop\SBMIC>python manage.py runserver 
+     ```  
+*  Hurrey! 😎, Our project running on localhost http://127.0.0.1:8000/
+
+---
+     
+     
+
+    
 
    
    
