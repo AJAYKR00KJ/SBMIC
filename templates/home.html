@@ -98,7 +98,12 @@
      
      <div class="col-lg-6 col-md-12 col-sm-12" style="padding: 10px;">
 <div data-aos="zoom-in-up">
-       <iframe width="100%" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1"></iframe></div>
+      {% for link in Youtube %}
+        {% if forloop.first %}
+       <iframe width="100%" height="345" src="{{ link.link_url }}"></iframe>
+        {% endif %}
+    {% endfor %}
+</div>
      </div>
       <div class="col-lg-6 col-md-12 col-sm-12 animated bounce" style="color: white;">
         <h3 style="text-align: center;color: #7D6608;">WELCOME</h3>
@@ -124,59 +129,41 @@
   <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-12" style="background-color:#26AAE1;padding-top: 10px;">
       <p class="ted"><i class="fa fa-bullhorn" style="background:#26aae1;color:white;font-size: 30px; " aria-hidden="true"></i>&emsp;Announcement</p>
-      <marquee width="60%" direction="up" height="300px" scrollamount="3" BEHAVIOR="alternate" >
-<ul><li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-</ul>
-</marquee>
+      <marquee onMouseOver="this.stop()" onMouseOut="this.start()" width="100%" direction="up" height="300px" scrollamount="3" BEHAVIOR="alternate" >
+          {% for announce in Announcement %}
+            <ul><li>{{ announce.date|date:"d F Y" }} :<a href=" {{ announce.link_url }}">{{ announce.title }}</a></li></ul>
 
+          {% endfor %}
+      </marquee>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-12 "  style="background-color:#FCB040;padding-top: 10px; ~webkit animation-delay: 2s">
       <p class="ted"><i class="fa fa-bars" style="background:#fcb040;color:white;font-size: 30px;  " aria-hidden="true"></i>&emsp;Tender</p>
-      <marquee width="60%" direction="up" height="300px" scrollamount="3" BEHAVIOR="alternate">
-<ul><li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-</ul>
-</marquee>
+      <marquee onMouseOver="this.stop()" onMouseOut="this.start()" width="100%" direction="up" height="300px" scrollamount="3" BEHAVIOR="alternate">
+          {% for tender in Tender %}
+            <ul><li>{{ tender.date|date:"d F Y" }} :<a href=" {{ tender.link_url }}">{{ tender.title }}</a></li></ul>
+
+          {% endfor %}
+      </marquee>
 
     </div>
     <div class="col-lg-3 col-md-6 col-sm-12"style="background-color:#F26521;padding-top: 10px;">
       <p class="ted"><i class="fa fa-calendar-check-o" style="background:#f26521;color:white;font-size: 30px;  " aria-hidden="true"></i>&emsp;Notice</p>
-      <marquee width="60%" direction="up" height="300px" scrollamount="3" BEHAVIOR="alternate">
+      <marquee onMouseOver="this.stop()" onMouseOut="this.start()" width="100%" direction="up" height="300px" scrollamount="3" BEHAVIOR="alternate">
+          {% for notice in Notice %}
+            <ul><li>{{ notice.date|date:"d F Y" }} :<a href=" {{ notice.link_url }}">{{ notice.title }}</a></li></ul>
 
-<ul><li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-</ul>
-</marquee>
+          {% endfor %}
+      </marquee>
 
     </div>
     <div class="col-lg-3 col-md-6 col-sm-12"style="background-color:#52B554;padding-top: 10px;">
       <p class="ted"><i class="fa fa-users" style="background:#52b554;color:white;font-size: 30px;  " aria-hidden="true"></i>&emsp;Events</p>
-      <marquee width="60%" direction="up" height="300px" scrollamount="3" BEHAVIOR="alternate">
-<ul><li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-<br><br><br>
-<li>This is a sample scrolling text that has scrolls in the upper direction.</li>
-</ul>
-</marquee>
+      <marquee onMouseOver="this.stop()" onMouseOut="this.start()" width="100%" direction="up" height="300px" scrollamount="3" BEHAVIOR="alternate">
+          {% for event in Event %}
+            <ul><li>{{ event.date|date:"d F Y" }} :<a href=" {{ event.link_url }}">{{ event.title }}</a></li></ul>
+
+          {% endfor %}
+      </marquee>
 
     </div>
   </div>

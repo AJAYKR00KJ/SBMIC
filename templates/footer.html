@@ -1,27 +1,37 @@
 
+
+
 <footer class="footer-distributed">
 
       <div class="footer-left">
 
-        <h3>Company<span>logo</span></h3>
+         {% for foot in Footer %}
+           {% if forloop.first %}
+                  <h3>{{foot.college}}</span></h3>
+           {% endif %}
+         {% endfor %}
 
         <p class="footer-links">
-          <a href="#" class="link-1">Home</a>
+          <a href="/" class="link-1">Home</a>
 
-          <a href="#">Blog</a>
+          <a href="#">Events</a>
 
-          <a href="#">Pricing</a>
+          <a href="/gallery">Gallery</a>
+
+          <a href="#">Departments</a>
 
           <a href="#">About</a>
-
-          <a href="#">Faq</a>
 
           <a href="#">Contact</a>
         </p>
 
         <p class="footer-company-about">
-          <span>About the company</span>
-          Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+          <span>Motive of College</span>
+            {% for foot in Footer %}
+              {% if forloop.first %}
+                 {{ foot.motive }}
+              {% endif %}
+            {% endfor %}
         </p>
 
 
@@ -31,20 +41,43 @@
 
       <div class="footer-center">
 
-        <div>
-          <i class="fa fa-map-marker"></i>
-          <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+          <div>
+            <i class="fa fa-map-marker"></i>
+            {% for foot in Footer %}
+                {% if forloop.first %}
+                  <a href="{{ foot.address_link }}" target=" ">
+                      <p><span>
+                       Chak Bhatti Road,Near<br>
+                       PAC Colony, <br>
+                       Chakdaud Nagar, Naini,
+                      </span> Prayagraj, Uttar Pradesh 211008
+                      </p>
+                  </a>
+                {% endif %}
+            {% endfor %}
+
         </div>
 
-        <div>
+       <div>
           <i class="fa fa-phone"></i>
-          <p>+1.555.555.5555</p>
+           {% for foot in Footer %}
+                {% if forloop.first %}
+                  <p>{{ foot.mobile }}</p>
+                {% endif %}
+            {% endfor %}
         </div>
 
         <div>
           <i class="fa fa-envelope"></i>
-          <p><a href="mailto:support@company.com">support@company.com</a></p>
+            {% for foot in Footer %}
+                {% if forloop.first %}
+                  <p><a href="mailto:{{foot.email}}">{{ foot.email }}</a></p>
+                {% endif %}
+            {% endfor %}
+
         </div>
+
+
 
       </div>
 
@@ -59,15 +92,47 @@
 
         </div>
 
-        <form action="#" method="post">
+          <script>
 
-          <input type="text" name="email" placeholder="Email">
-          <textarea name="message" placeholder="Message"></textarea>
-          <button>Send</button>
+          function IsEmpty()
+          {
+              if (document.forms['frm'].email.value === "") {
+                alert("Please enter valid email!!!");
+                return false;
+              }
+
+              if (document.forms['frm'].message.value === "") {
+                alert("Please Write Message!!!");
+                return false;
+              }
+
+
+
+              return true;
+           }
+          </script>
+
+        <div class="form-group">
+            {% if messages %}
+              {% for message in messages %}
+            <script>
+             alert("Your response has been sent!");
+            </script>
+
+              {% endfor %}
+            {% endif %}
+        </div>
+        <form name="frm" action="." method="post" id="Dog">
+            {% csrf_token %}
+          <input type="email" name="email" placeholder="Email">
+          <textarea name="message" placeholder="Message" ></textarea>
+          <button onclick="return IsEmpty();" type="submit">Send</button>
 
         </form>
 
+
       </div>
+
 
 
      <p class="footer-company-name">ajaykr00kj © 2021</p>
